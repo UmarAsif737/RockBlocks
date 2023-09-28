@@ -1,22 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react'
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation } from "swiper";
+import { Swiper, SwiperSlide } from 'swiper/react'
+import SwiperCore, { Navigation } from 'swiper'
 // Import Swiper styles
-import "swiper/swiper.min.css";
+import 'swiper/swiper.min.css'
 function LimitSection({ setBuyCase }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const [swiper, setSwiper] = useState();
-
-  const handleNextClick = () => {
-    setCurrentIndex((currentIndex + 1) % 2);
-    swiper.slideToLoop(currentIndex);
-  };
-  const handlePreviousClick = () => {
-    setCurrentIndex((currentIndex - 1) % 2);
-    swiper.slideToLoop(currentIndex);
-  };
   return (
     <>
       <section class="limit___section position-relative">
@@ -26,21 +14,25 @@ function LimitSection({ setBuyCase }) {
             class="lagendary___img d-lg-block d-none"
             alt="image"
           />
-          
+
           <div class="text-center position-relative d-lg-block d-none">
             <h1 class="fw-500 rent__h1">
               For Sale <span class="text-red limit__edi">LIMIT EDITION</span>
             </h1>
           </div>
           <div class="d-lg-block d-none">
-            <div class="row my-5" style={{justifyContent:"space-evenly"}}>
+            <div class="row my-5" style={{ justifyContent: 'space-evenly' }}>
               <div class="limit__card">
                 <div class="limit__img">
                   <img src="/assets/images/limit-card1.png" alt="image" />
                 </div>
                 <div class="limit__dtls text-center py-2 mt-2">
                   <div className="card__boxbolt">
-                    <img src="/assets/images/bolt_yellowbig.png" className="bolt_space" alt="images" />
+                    <img
+                      src="/assets/images/bolt_yellowbig.png"
+                      className="bolt_space"
+                      alt="images"
+                    />
                     <p class="text-white mt-3">200 Kh/s</p>
                   </div>
                   <h4 class="text-yellow">18000 USDT</h4>
@@ -49,7 +41,8 @@ function LimitSection({ setBuyCase }) {
                   <button
                     data-bs-toggle="modal"
                     data-bs-target="#myModal"
-                    onClick={() => setBuyCase(200)}>
+                    onClick={() => setBuyCase(200)}
+                  >
                     BUY
                   </button>
                 </div>
@@ -60,7 +53,11 @@ function LimitSection({ setBuyCase }) {
                 </div>
                 <div class="limit__dtls text-center py-2 mt-2">
                   <div className="card__boxbolt">
-                    <img src="/assets/images/bolt_yellowbig.png" className="bolt_space" alt="images" />
+                    <img
+                      src="/assets/images/bolt_yellowbig.png"
+                      className="bolt_space"
+                      alt="images"
+                    />
                     <p class="text-white mt-3">500 Kh/s</p>
                   </div>
                   <h4 class="text-yellow">40000 USDT</h4>
@@ -69,7 +66,8 @@ function LimitSection({ setBuyCase }) {
                   <button
                     data-bs-toggle="modal"
                     data-bs-target="#myModal"
-                    onClick={() => setBuyCase(500)}>
+                    onClick={() => setBuyCase(500)}
+                  >
                     BUY
                   </button>
                 </div>
@@ -78,18 +76,23 @@ function LimitSection({ setBuyCase }) {
           </div>
           <div class="row gap-5 justify-content-center my-5 d-lg-none d-block">
             <div class="swiper swiper3 py-3 overflow-visible">
-              <img src="/assets/images/legendary2.png" class="lagendary___img d-lg-none d-block" alt="image"/>
+              <img
+                src="/assets/images/legendary2.png"
+                class="lagendary___img d-lg-none d-block"
+                alt="image"
+              />
               <div class="swiper-wrapper">
                 <div class="limit__edition__mb d-lg-none d-block">
                   <p className="limit_p_bottom pfont">LIMIT EDITION</p>
                 </div>
                 <Swiper
-                  navigation={true}
                   slidesPerView={1}
                   loop={1}
-                  onSwiper={(swiper) => {
-                    setSwiper(swiper);
-                  }}>
+                  navigation={{
+                    nextEl: '.swiper-button-next-2',
+                    prevEl: '.swiper-button-prev-2',
+                  }}
+                >
                   <SwiperSlide key={0}>
                     <div class="swiper-slide">
                       <div class="limit__card mx-auto">
@@ -114,14 +117,15 @@ function LimitSection({ setBuyCase }) {
                           <button
                             data-bs-toggle="modal"
                             data-bs-target="#myModal"
-                            onClick={() => setBuyCase(200)}>
+                            onClick={() => setBuyCase(200)}
+                          >
                             BUY
                           </button>
                         </div>
                       </div>
                     </div>
                   </SwiperSlide>
-                  <SwiperSlide key={0}>
+                  <SwiperSlide key={1}>
                     <div class="swiper-slide">
                       <div class="limit__card mx-auto">
                         <div class="limit__img">
@@ -145,7 +149,8 @@ function LimitSection({ setBuyCase }) {
                           <button
                             data-bs-toggle="modal"
                             data-bs-target="#myModal"
-                            onClick={() => setBuyCase(500)}>
+                            onClick={() => setBuyCase(500)}
+                          >
                             BUY
                           </button>
                         </div>
@@ -154,15 +159,11 @@ function LimitSection({ setBuyCase }) {
                   </SwiperSlide>
                 </Swiper>
               </div>
-              
-              <div
-                class="swiper-button-prev prev-button-2"
-                onClick={handlePreviousClick}>
+
+              <div class="swiper-button-prev swiper-button-prev-2 prev-button-2">
                 <img src="/assets/images/arrow-left_red.png" alt="image" />
               </div>
-              <div
-                class="swiper-button-next next-button-2"
-                onClick={handleNextClick}>
+              <div class="swiper-button-next swiper-button-next-2 next-button-2">
                 <img src="/assets/images/arrow-right_red.png" alt="image" />
               </div>
             </div>
@@ -170,7 +171,7 @@ function LimitSection({ setBuyCase }) {
         </div>
       </section>
     </>
-  );
+  )
 }
 
-export default LimitSection;
+export default LimitSection
